@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for post in posts %}
+        {% for post in posts %}
         <div class="row">
             <hr>
             <div class="col-md-2 col-sm-3 text-center">
@@ -16,7 +16,9 @@ class="img-circle">
                 <div class="col-xs-9">
                     <p>{{ post.content | truncatewords:30 }}</p>
                     <p><button class="btn btn-default" onclick="location.href={{ post.id }}">Read More</button></p>
-                <p>{{ post.published_date }}</p>
+                <p>{{ post.published_date }} | <strong>Views</strong>
+                    {{ post.views }} | <strong>Tag</strong> {{ post.tag }}</p>
+                <p><button class="btn btn-default" onclick="location.href='{% url 'new_post'%}'">New Post</button>
         </div>
         </div>
         </div>
